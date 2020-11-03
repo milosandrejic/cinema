@@ -26,11 +26,16 @@
   }
 
   @media (max-width: 450px) {
+    width: 11rem;
+    height: 16.5rem;
+  }
+
+  @media (max-width: 400px) {
     width: 10rem;
     height: 15rem;
   }
 
-  @media (max-width: 450px) {
+  @media (max-width: 400px) {
     width: 8rem;
     height: 12rem;
   }
