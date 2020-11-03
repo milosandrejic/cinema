@@ -22,14 +22,15 @@
   }
 
   @media (max-width: 550px) {
-    width: 10rem;
     height: 18rem;
+    width: 10rem;
   }
 
-  @media (max-width: 450px) {
+  @media (max-width: 400px) {
     width: 8rem;
     height: 15rem;
   }
+
 
   &:hover {
     transform: scale(1.1);
