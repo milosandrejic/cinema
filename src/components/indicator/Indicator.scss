@@ -1,0 +1,17 @@
+.Indicator{
+  font-size: 4rem;
+  color: #bdc3c7;
+  font-weight: bold;
+  position: absolute;
+  z-index: 1000;
+
+  @media (max-width: 800px) {
+    display: none;
+  }
+
+  &:hover {
+    color: white;
+    cursor: pointer;
+  }
+
+}

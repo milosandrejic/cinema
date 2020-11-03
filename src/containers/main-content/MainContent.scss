@@ -1,0 +1,76 @@
+.MainContent {
+  background-color: rgba(black, 0.95);
+  display: flex;
+  flex-direction: column;
+
+  &__header {
+    display: flex;
+    justify-content: flex-start;
+    height: 10rem;
+    position: relative;
+    z-index: 1000;
+    padding: 0 2rem;
+  }
+
+  &__dropdown {
+    overflow: hidden;
+    margin: 3rem 2rem 1rem 0;
+    cursor: pointer;
+    width: 16rem;
+    position: absolute;
+    right: 3rem;
+    top: 5px;
+
+    @media (max-width: 600px) {
+      width: 10rem;
+      margin: 3rem 0 1rem 0;
+    }
+
+    &-item-active {
+      background: rgba(darkgrey, 0.7);
+      border: 1px solid grey;
+      padding: .3rem 0 .3rem .5rem;
+      color: white;
+      font-size: 1.4rem;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &-item-active:hover ~ &-list {
+      height: auto;
+    }
+
+    &-icon {
+      font-size: 2rem;
+      margin-right: 1rem;
+    }
+
+    &-list {
+      width: 100%;
+      overflow: hidden;
+      background: rgba(darkgrey, 0.7);
+      color: white;
+      font-size: 1.4rem;
+      height: 0;
+      transition: all .5s;
+
+      &:hover {
+        height: auto;
+      }
+
+      &-item {
+        padding: .3rem 0 .3rem .5rem;
+
+        &:hover {
+          background: rgba(darkgrey, 0.9);
+        }
+
+      }
+
+    }
+
+  }
+
+}

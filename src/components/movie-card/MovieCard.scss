@@ -1,0 +1,119 @@
+.MovieCard {
+  width: 20rem;
+  height: 30rem;
+  margin: 1rem;
+  position: relative;
+  transition: all .7s;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover !important;
+
+  @media (max-width: 1000px) {
+    width: 17rem;
+    height: 27rem;
+  }
+
+
+  @media (max-width: 800px) {
+    width: 13rem;
+    height: 23rem;
+  }
+
+  @media (max-width: 550px) {
+    width: 10rem;
+    height: 18rem;
+  }
+
+  @media (max-width: 450px) {
+    width: 8rem;
+    height: 15rem;
+  }
+
+  &:hover {
+    transform: scale(1.1);
+    z-index: 1;
+  }
+
+  &:hover > &__details-container {
+    opacity: 1;
+  }
+
+  &__details {
+
+    &-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      width: 100%;
+      opacity: 0;
+      transition: opacity .5s;
+
+      @media (max-width: 800px) {
+        opacity: 1;
+        height: 100%;
+      }
+
+    }
+
+    &-title {
+      text-transform: uppercase;
+      font-size: 2.2rem;
+      text-align: center;
+
+      @media (max-width: 800px) {
+        display: none;
+      }
+
+    }
+
+    &-rating {
+      font-size: 2rem;
+      margin: 1rem 0;
+
+      @media (max-width: 800px) {
+        display: none;
+      }
+
+    }
+
+    &-btn {
+      font-size: 1.4rem;
+      text-transform: uppercase;
+      background-color: rgba(#2c3e50, 0.8);
+      text-decoration: none;
+      color: #f5deb3;
+      padding: .7rem 2rem;
+      border-radius: 1.5rem;
+      border: 1px solid transparent;
+      transition: border .5s;
+      cursor: pointer;
+
+      &:focus {
+        outline: none;
+      }
+
+      @media (max-width: 900px) {
+        font-size: 1.4rem;
+        padding: .5rem 1.5rem;
+        width: 100%;
+        height: 100%;
+        color: transparent;
+        border: none;
+        background-color: transparent;
+        border-radius: 0;
+      }
+
+
+      &:hover {
+        border: 1px solid dodgerblue;
+      }
+    }
+
+  }
+
+
+}
