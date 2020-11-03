@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from 'react';
+import {useEffect, useRef} from 'react';
 
 const useDidUpdate = (func, deps) => {
 
@@ -10,6 +10,7 @@ const useDidUpdate = (func, deps) => {
     } else {
       didMount.current = true;
     }
+    // eslint-disable-next-line
   }, deps)
 
 }

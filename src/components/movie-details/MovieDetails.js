@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import {useParams, useLocation} from 'react-router-dom';
+import {useLocation, useParams} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {getMovieDetails, clearMovieDetails, getMovieRecommendations} from "../../redux/actions/movie";
-import {getShowDetails, clearShowDetails, getShowRecommendations} from "../../redux/actions/tv";
+import {clearMovieDetails, getMovieDetails, getMovieRecommendations} from "../../redux/actions/movie";
+import {clearShowDetails, getShowDetails, getShowRecommendations} from "../../redux/actions/tv";
 
 import './MovieDetails.scss';
 import {constructImageUrl, posterImageSizes} from "../../services/apiService";
@@ -36,6 +36,7 @@ const MovieDetails = (props) => {
         clearShowDetails();
       }
     }
+    //eslint-disable-next-line
   }, [id]);
 
   useEffect(() => {
@@ -74,6 +75,7 @@ const MovieDetails = (props) => {
             <div className='MovieDetails__rating-container'>
               <ul className='MovieDetails__star-list'>
                 {
+                  // eslint-disable-next-line
                   starsArray.map((star, i) => {
                     const goldStars = Math.floor(details.vote_average);
                     const halfStars = details.vote_average - goldStars;
@@ -146,13 +148,14 @@ const MovieDetails = (props) => {
           <div className='MovieDetails__recommendations'>
             <h2 className='MovieDetails__section-title'>Recommendations</h2>
             <div className='MovieDetails__recommendations-container'>
-              {recommendations && recommendations.map((recommendation, i) => {
-                if (i < 10) {
-                  return <MovieCard key={i}
-                                    movieData={url.pathname.startsWith('/details/movie') ? recommendation : null}
-                                    showData={url.pathname.startsWith('/details/show') ? recommendation : null}/>
-                }
-              })}
+              {     // eslint-disable-next-line
+                recommendations && recommendations.map((recommendation, i) => {
+                  if (i < 10) {
+                    return <MovieCard key={i}
+                                      movieData={url.pathname.startsWith('/details/movie') ? recommendation : null}
+                                      showData={url.pathname.startsWith('/details/show') ? recommendation : null}/>
+                  }
+                })}
             </div>
           </div>
         </div>

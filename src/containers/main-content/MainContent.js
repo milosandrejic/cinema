@@ -15,7 +15,7 @@ const MainContent = (props) => {
 
   const {movies, shows} = props;
   const {getMovies, getTvShows, loadMoreMovies, loadMoreShows} = props;
-  const {movieCurrentPage, movieTotalPages, showCurrentPage, showTotalPages} = props;
+  const {movieTotalPages, showTotalPages} = props;
   const {requestType} = props;
 
 
@@ -45,6 +45,7 @@ const MainContent = (props) => {
         setTotalPages(movieTotalPages < showTotalPages ? movieTotalPages : showTotalPages);
         break;
     }
+    // eslint-disable-next-line
   }, [movieTotalPages, showTotalPages])
 
   useEffect(() => {
@@ -62,6 +63,7 @@ const MainContent = (props) => {
         setTvList(shows);
         break;
     }
+    // eslint-disable-next-line
   }, [movies, shows])
 
 

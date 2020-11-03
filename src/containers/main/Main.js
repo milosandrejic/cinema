@@ -31,7 +31,10 @@ const Main = (props) => {
       case '/tv-shows':
         changeRequestType(requestTypeService.SHOW);
         break;
+      default:
+        break;
     }
+    // eslint-disable-next-line
   }, [location])
 
   useEffect(() => {
@@ -47,6 +50,7 @@ const Main = (props) => {
         getTvShows(API_REQUESTS_OPTIONS[INITIAL_REQUEST_OPTION_INDEX].value, 1);
         break;
     }
+    // eslint-disable-next-line
   }, [type])
 
   return (
