@@ -128,6 +128,8 @@ const MainContent = (props) => {
           loadMoreShows(API_REQUESTS_OPTIONS[activeRequestOptionIndex].value, pageNumber);
           setInfiniteScrollRequestPage(pageNumber)
           break;
+        default:
+          break;
       }
     }
   }
@@ -144,6 +146,7 @@ const MainContent = (props) => {
           </p>
           <ul className='MainContent__dropdown-list'>
             {
+              // eslint-disable-next-line
               API_REQUESTS_OPTIONS.map((option, index) => {
                   if (index !== activeRequestOptionIndex) {
                     if (requestType === 'both') {
