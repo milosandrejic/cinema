@@ -19,7 +19,10 @@ const MovieDetails = (props) => {
   const [recommendations, setRecommendations] = useState();
   const url = useLocation();
 
+  const [castExpanded, setCastExpanded] = useState(false);
+
   let starsArray = [...Array(10)];
+
 
   useEffect(() => {
     if (url.pathname.startsWith('/details/movie')) {
@@ -58,9 +61,13 @@ const MovieDetails = (props) => {
     }
   }, [showDetails, tvShowRecommendations])
 
+  const handleCastListHeight = () => {
+    setCastExpanded(!castExpanded);
+  }
+
   return (
     <>
-      {(details && details.title && details.genres && details.cast && details.crew && details.results && recommendations) ?
+      {(details && details.genres && details.cast && details.results && recommendations) ?
         <div className='MovieDetails'>
           <div className='MovieDetails__header'
                style={{background: `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(${constructImageUrl(posterImageSizes.original, details.backdrop_path)})`}}>
@@ -105,33 +112,37 @@ const MovieDetails = (props) => {
             <p className='MovieDetails__overview'>{details.overview}</p>
             <div className='divider'></div>
             <div className='MovieDetails__team-container'>
-              {(details.cast.length > 0) && <div className='MovieDetails__team'>
-                <h3 className='MovieDetails__team-title'>Cast</h3>
-                {
-                  details.cast.map(cast => (
-                    <div className='MovieDetails__person-container' key={cast.id}>
-                      <div className='MovieDetails__person-image'
-                           style={{background: `url(${constructImageUrl(posterImageSizes.small, cast.profile_path)})`}}></div>
-                      <p className='MovieDetails__person-name'>{cast.name}</p>
-                      <p className='MovieDetails__person-character'>{cast.character}</p>
-                    </div>
-                  ))
-                }
-              </div>}
-              {(details.crew.length > 0) &&
+              {(details.cast.length > 0) &&
               <div className='MovieDetails__team'>
-                <h3 className='MovieDetails__team-title'>Crew</h3>
+                <h3 className='MovieDetails__section-title'>Cast</h3>
                 {
-                  details.crew.map(crew => (
-                    <div className='MovieDetails__person-container' key={crew.credit_id}>
-                      <p className='MovieDetails__person-name'>{crew.name}</p>
-                      <p className='MovieDetails__person-character'>{crew.department}</p>
-                    </div>
-                  ))
+                  details.cast.map((cast, i) => {
+                    if (castExpanded) {
+                      return (
+                        <div className='MovieDetails__person-container' key={cast.id}>
+                          <div className='MovieDetails__person-image'
+                               style={{background: `url(${constructImageUrl(posterImageSizes.small, cast.profile_path)})`}}></div>
+                          <p className='MovieDetails__person-name'>{cast.name}</p>
+                          <p className='MovieDetails__person-character'>{cast.character}</p>
+                        </div>)
+                    } else {
+                      if (i < 5) {
+                        return (
+                          <div className='MovieDetails__person-container' key={cast.id}>
+                            <div className='MovieDetails__person-image'
+                                 style={{background: `url(${constructImageUrl(posterImageSizes.small, cast.profile_path)})`}}></div>
+                            <p className='MovieDetails__person-name'>{cast.name}</p>
+                            <p className='MovieDetails__person-character'>{cast.character}</p>
+                          </div>)
+                      }
+                    }
+                  })
                 }
+                <div onClick={() => handleCastListHeight()} className='MovieDetails__team-see-more'>
+                  <i className={`fas fa-arrow-${castExpanded ? 'up' : 'down'}`}></i>
+                </div>
+              </div>}
 
-              </div>
-              }
             </div>
             {(details.results.length > 0) &&
             <>
