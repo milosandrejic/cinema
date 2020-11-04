@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 
 import './Header.scss';
-import Navigation from "../../components/navigation/Navigation";
 import {Link} from "react-router-dom";
 import {constructImageUrl, posterImageSizes} from "../../services/apiService";
 
@@ -21,6 +20,7 @@ const Header = (props) => {
       setCurrentMovieIndex(Math.floor(Math.random() * content.length));
     }, 5000)
     return () => clearInterval(interval);
+    // eslint-disable-next-line
   }, [currentMovieIndex])
 
   return (

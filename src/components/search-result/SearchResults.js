@@ -17,10 +17,10 @@ const SearchResults = (props) => {
   return (
     <div className='SearchResults'>
       <div className='SearchResults__header'>
-        <a onClick={() => handleGoBack()} className='SearchResults__back-btn'>
+        <div onClick={() => handleGoBack()} className='SearchResults__back-btn'>
           <span>&lsaquo; </span>
           Back
-        </a>
+        </div>
         <p className='SearchResults__results-lenght'>Matched your search: {movieResults.length + showResults.length}</p>
         <p className='SearchResults__search-query'>Query: {searchQuery}</p>
       </div>

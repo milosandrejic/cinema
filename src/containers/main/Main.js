@@ -5,15 +5,13 @@ import Header from "../header/Header";
 import MainContent from "../main-content/MainContent";
 import {getMovies} from "../../redux/actions/movie";
 import {getTvShows} from "../../redux/actions/tv";
-import {changeRequestType} from "../../redux/actions/utilityActions";
+import {changeRequestType, setSearch} from "../../redux/actions/utilityActions";
 import {API_REQUESTS_OPTIONS, INITIAL_REQUEST_OPTION_INDEX} from "../../services/apiService";
 import Loader from "../../components/loader/Loader";
 import * as requestTypeService from '../../services/requestTypeService';
 import {useLocation} from 'react-router-dom';
 import Navigation from "../../components/navigation/Navigation";
 import MovieDetails from "../../components/movie-details/MovieDetails";
-import ResultsGrid from "../../components/results-grid/ResultsGrid";
-import {setSearch} from "../../redux/actions/utilityActions";
 import SearchResults from "../../components/search-result/SearchResults";
 
 const Main = (props) => {
