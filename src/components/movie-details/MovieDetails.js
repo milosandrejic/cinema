@@ -135,6 +135,7 @@ const MovieDetails = (props) => {
                             <p className='MovieDetails__person-character'>{cast.character}</p>
                           </div>)
                       }
+                      return null;
                     }
                   })
                 }
