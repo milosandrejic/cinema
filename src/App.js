@@ -16,9 +16,9 @@ function App() {
         <div className="App">
           <Switch>
             <Route exact path='/' render={() => <Main type={requestTypes.BOTH}/>}/>
-            <Route exact path='/movies' render={() => <Main type={requestTypes.MOVIE}/>}/>
-            <Route exact path='/tv-shows' render={() => <Main type={requestTypes.SHOW}/>}/>
-            <Route path='/details/:type/:id' component={Main} />
+            <Route path='/movies' render={() => <Main type={requestTypes.MOVIE}/>}/>
+            <Route path='/tv-shows' render={() => <Main type={requestTypes.SHOW}/>}/>
+            <Route path='/details/:type/:id' component={Main}/>
           </Switch>
         </div>
       </BrowserRouter>
