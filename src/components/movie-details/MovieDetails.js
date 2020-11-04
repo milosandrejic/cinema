@@ -146,17 +146,21 @@ const MovieDetails = (props) => {
           }
           <div className='divider'></div>
           <div className='MovieDetails__recommendations'>
-            <h2 className='MovieDetails__section-title'>Recommendations</h2>
-            <div className='MovieDetails__recommendations-container'>
-              {     // eslint-disable-next-line
-                recommendations && recommendations.map((recommendation, i) => {
-                  if (i < 10) {
-                    return <MovieCard key={i}
-                                      movieData={url.pathname.startsWith('/details/movie') ? recommendation : null}
-                                      showData={url.pathname.startsWith('/details/show') ? recommendation : null}/>
-                  }
-                })}
-            </div>
+            {recommendations &&
+            <>
+              <h2 className='MovieDetails__section-title'>Recommendations</h2>
+              <div className='MovieDetails__recommendations-container'>
+                {     // eslint-disable-next-line
+                  recommendations && recommendations.map((recommendation, i) => {
+                    if (i < 10) {
+                      return <MovieCard key={i}
+                                        movieData={url.pathname.startsWith('/details/movie') ? recommendation : null}
+                                        showData={url.pathname.startsWith('/details/show') ? recommendation : null}/>
+                    }
+                  })}
+              </div>
+            </>
+            }
           </div>
         </div>
       </div>}

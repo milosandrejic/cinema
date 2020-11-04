@@ -15,22 +15,34 @@ const ResultsGrid = (props) => {
         searchActive ?
           <div className='ResultsGrid'>
             {movieSearchResults && movieSearchResults.map(movie => {
-              return <MovieCard key={v4()} movieData={movie}/>
+              if (movie.poster_path) {
+                return <MovieCard key={v4()} movieData={movie}/>
+              }
+              return null;
             })}
             {
               tvShowSearchResults && tvShowSearchResults.map(show => {
-                return <MovieCard key={v4()} showData={show}/>
+                if (show.poster_path) {
+                  return <MovieCard key={v4()} showData={show}/>
+                }
+                return null;
               })
             }
           </div>
           :
           <div className='ResultsGrid'>
             {movies && movies.map(movie => {
-              return <MovieCard key={v4()} movieData={movie}/>
+              if (movie.poster_path) {
+                return <MovieCard key={v4()} movieData={movie}/>
+              }
+              return null;
             })}
             {
               shows && shows.map(show => {
-                return <MovieCard key={v4()} showData={show}/>
+                if (show.poster_path) {
+                  return <MovieCard key={v4()} showData={show}/>
+                }
+                return null;
               })
             }
           </div>

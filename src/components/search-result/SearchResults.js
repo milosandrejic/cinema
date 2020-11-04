@@ -15,7 +15,8 @@ const SearchResults = (props) => {
   }
 
   return (
-    <div className='SearchResults'>
+    <div className='SearchResults'
+         style={{height: `${movieResults.length + showResults.length === 0 ? '100vh' : ''}`}}>
       <div className='SearchResults__header'>
         <div onClick={() => handleGoBack()} className='SearchResults__back-btn'>
           <span>&lsaquo; </span>
@@ -36,4 +37,4 @@ const mapStateToProps = (state) => ({
   searchQuery: state.movies.searchQuery
 })
 
-export default connect(mapStateToProps) (SearchResults);
+export default connect(mapStateToProps)(SearchResults);
