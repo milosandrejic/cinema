@@ -1,0 +1,2 @@
+export const SET_REQUEST_TYPE = 'SET_REQUEST_TYPE';
+export const SET_SEARCH = 'SET_SEARCH';

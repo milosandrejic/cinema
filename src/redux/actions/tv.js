@@ -1,4 +1,4 @@
-import {TV_SHOW_API_REQUEST} from "../../services/tvShowsService";
+import {SEARCH_SHOW_API_REQUEST, TV_SHOW_API_REQUEST} from "../../services/tvShowsService";
 import * as tvShowActionType from '../tvShowActionTypes';
 import {dispatchMethod} from "../reduxUtility";
 import * as requestType from '../../services/requestTypeService';
@@ -33,6 +33,13 @@ export const getShowRecommendations = (id) => async (dispatch) => {
   const response = await TV_SHOW_API_REQUEST(requestType.RECOMMENDATIONS, null, id);
   const {results} = response.data;
   dispatchMethod(tvShowActionType.TV_SHOW_RECOMMENDATIONS, results, dispatch);
+}
+
+export const searchShow = (query) => async (dispatch) => {
+  const response = await SEARCH_SHOW_API_REQUEST(query);
+  const {results} = response.data;
+  dispatchMethod(tvShowActionType.SEARCH_SHOW_QUERY, query, dispatch);
+  dispatchMethod(tvShowActionType.SEARCH_SHOW, results, dispatch);
 }
 
 

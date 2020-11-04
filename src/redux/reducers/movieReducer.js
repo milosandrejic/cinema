@@ -37,7 +37,7 @@ export default (state = initialState, action) => {
         ...state,
         movieDetails: action.payload
       }
-    case movieActionType.SEARCH_QUERY:
+    case movieActionType.SEARCH_MOVIE_QUERY:
       return {
         ...state,
         searchQuery: action.payload

@@ -2,12 +2,12 @@ import {combineReducers} from "redux";
 import movieReducer from './movieReducer';
 import tvShowReducer from './tvShowReducer';
 import errorReducer from './errorReducer';
-import requestTypeReducer from "./requestTypeReducer";
+import utilityReducer from "./utilityReducer";
 
 const reducers = combineReducers({
     movies: movieReducer,
     tvShows: tvShowReducer,
-    requestType: requestTypeReducer,
+    utility: utilityReducer,
     error: errorReducer
 });
 

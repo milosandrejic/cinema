@@ -1,4 +1,4 @@
-import {MOVIE_API_REQUEST, SEARCH_MOVIE_REQUEST_URL} from "../../services/movieService";
+import {MOVIE_API_REQUEST, SEARCH_MOVIE_API_REQUEST} from "../../services/movieService";
 import * as movieActionType from '../movieActionTypes';
 import {dispatchMethod} from "../reduxUtility";
 import * as requestType from '../../services/requestTypeService';
@@ -30,9 +30,9 @@ export const clearMovieDetails = () => (dispatch) => {
 }
 
 export const searchMovie = (query) => async (dispatch) => {
-  const response = await SEARCH_MOVIE_REQUEST_URL(query);
-  const results = response.data;
-  dispatchMethod(movieActionType.SEARCH_QUERY, query, dispatch);
+  const response = await SEARCH_MOVIE_API_REQUEST(query);
+  const {results} = response.data;
+  dispatchMethod(movieActionType.SEARCH_MOVIE_QUERY, query, dispatch);
   dispatchMethod(movieActionType.SEARCH_MOVIE, results, dispatch);
 }
 

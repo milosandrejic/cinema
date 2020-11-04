@@ -8,7 +8,7 @@ import {API_REQUESTS_OPTIONS, INITIAL_REQUEST_OPTION_INDEX} from "../../services
 import {getMovies, loadMoreMovies} from "../../redux/actions/movie";
 import {getTvShows, loadMoreShows} from "../../redux/actions/tv";
 import ResultsGrid from "../../components/results-grid/ResultsGrid";
-import {changeRequestType} from "../../redux/actions/requestType";
+import {changeRequestType} from "../../redux/actions/utilityActions";
 import useDidUpdate from "../../components/custom-hooks/useDidUpdate";
 
 const MainContent = (props) => {
@@ -178,7 +178,7 @@ const mapStateToProps = state => ({
   movieTotalPages: state.movies.totalPages,
   showCurrentPage: state.tvShows.page,
   showTotalPages: state.tvShows.totalPages,
-  requestType: state.requestType.type
+  requestType: state.utility.type
 })
 
 const mapDispatchToProps = {

@@ -1,0 +1,29 @@
+.SearchResults {
+  background-color: rgba(black, 0.95);
+  padding-top: 10rem;
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    color: #2c3e50;
+    font-size: 2rem;
+    padding-left: 5rem;
+  }
+
+  &__back-btn {
+    cursor: pointer;
+    margin-bottom: 2rem;
+    color: darkred;
+    span {
+      font-size: 2.5rem;
+      font-weight: 600;
+      opacity: 0;
+      transition: opacity .5s;
+    }
+
+    &:hover > span {
+      opacity: 1;
+    }
+  }
+
+}

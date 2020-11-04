@@ -1,11 +1,13 @@
 import React, {useRef} from 'react';
 import {useHistory} from 'react-router-dom';
+import {connect} from 'react-redux';
 import './MovieCard.scss';
 import {constructImageUrl, posterImageSizes} from "../../services/apiService";
+import {setSearch} from "../../redux/actions/utilityActions";
 
 const MovieCard = (props) => {
 
-  const {movieData, showData} = props;
+  const {movieData, showData, setSearch} = props;
   const {poster_path, vote_average, id} = movieData ? movieData : showData;
   const card = useRef();
   const history = useHistory();
@@ -23,6 +25,7 @@ const MovieCard = (props) => {
   }
 
   const pushToDetails = () => {
+    setSearch(false);
     history.push(`/details/${movieData ? 'movie' : 'show'}/${id}`);
   }
 
@@ -38,4 +41,5 @@ const MovieCard = (props) => {
   )
 }
 
-export default MovieCard;
+
+export default connect(null, {setSearch})(MovieCard);
